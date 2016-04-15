@@ -1,0 +1,18 @@
+<h1>Registration</h1>
+
+
+<%= form_for(@user) do |f| %>
+  <%= f.label :first_name, 'First Name' %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name, 'Last Name' %>
+  <%= f.text_field :last_name %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :user_name, 'Username' %>
+  <%= f.text_field :user_name %>
+  <%= f.label :password_digest, 'Password' %>
+  <%= f.text_field :password_digest %>
+
+  <%= f.submit "Register" %>
+
+<%end%>

@@ -5,18 +5,29 @@ class UsersController < ActionController::Base
   end
 
   def new
-    @new = User.new
+    @user = User.new
   end
 
   def show
-    @user = User.find(user_params)
+    @user = current_user
+    # byebug
+  end
+
+  def create
+    @user = User.create(user_params)
+    if @user.save
+      render :show
+    else
+      flash[:error] = "Missing Data"
+      render :new
+    end
   end
 
 
   private
 
   def user_params
-    params.require(@user).permit(:user_name, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :user_name, :password_digest)
   end
 
 end
