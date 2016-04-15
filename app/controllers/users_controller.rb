@@ -1,4 +1,5 @@
-class UsersController < ActionController::Base
+class UsersController < ApplicationController
+  # layout "application"
 
   def index
     @users = User.all
@@ -14,13 +15,16 @@ class UsersController < ActionController::Base
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if @user.save
+      flash.now[:save] = "You have Successfully Register"
       render :show
     else
-      flash[:error] = "Missing Data"
+      flash.now[:error] = "Missing Data"
       render :new
     end
+
+    #call me back
   end
 
 
