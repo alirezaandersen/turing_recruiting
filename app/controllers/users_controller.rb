@@ -11,27 +11,31 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    # byebug
   end
 
   def create
     @user = User.new(user_params)
+    # byebug
     if @user.save
+      login @user
       flash.now[:save] = "You have Successfully Register"
       render :show
     else
       flash.now[:error] = "Missing Data"
       render :new
     end
-
-    #call me back
   end
 
+  def destroy
+    user = User.find(params[:user_id])
+    user.destroy
+    redirect_to root_path
+  end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :user_name, :password_digest)
+    params.require(:user).permit(:first_name, :last_name, :email, :user_name, :password)
   end
 
 end

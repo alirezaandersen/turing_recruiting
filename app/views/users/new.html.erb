@@ -1,18 +1,24 @@
 <h1>Registration</h1>
 
+<% provide(:title, "Register") %>
+<h1>Register</h1>
 
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
 <%= form_for(@user) do |f| %>
-  <%= f.label :first_name, 'First Name' %>
-  <%= f.text_field :first_name %>
-  <%= f.label :last_name, 'Last Name' %>
-  <%= f.text_field :last_name %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :user_name, 'Username' %>
-  <%= f.text_field :user_name %>
-  <%= f.label :password_digest, 'Password' %>
-  <%= f.text_field :password_digest %>
+  <%= f.label :first_name, 'First Name' %><br>
+  <%= f.text_field :first_name, class: 'form-control' %><br>
+  <%= f.label :last_name, 'Last Name' %><br>
+  <%= f.text_field :last_name, class: 'form-control' %><br>
+  <%= f.label :email %><br>
+  <%= f.text_field :email, class: 'form-control' %><br>
+  <%= f.label :user_name, 'Username' %><br>
+  <%= f.text_field :user_name, class: 'form-control' %><br>
+  <%= f.label :password, 'Password' %><br>
+  <%= f.text_field :password,class: 'form-control' %><br>
 
   <%= f.submit "Register" %>
 
 <%end%>
+</div>
+</div>

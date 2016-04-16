@@ -8,7 +8,7 @@ class UsersTest < ActionDispatch::IntegrationTest
 
     assert users_path, current_path
 
-    assert page.has_content?("We Find Developers")
+    assert page.has_link?("Turing Recruiting")
 
     assert page.has_link?("Login")
     assert page.has_link?("Register")
@@ -35,7 +35,8 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Welcome Ali")
   end
 
-  test "User can login when registered" do
+  test "User can register" do
+    visit new_user_path
 
     assert new_user_path, current_path
 
@@ -48,10 +49,10 @@ class UsersTest < ActionDispatch::IntegrationTest
     click_button "Register"
 
     assert page.has_content?("Welcome Ali")
+  end
 
-    click_on "Login"
-
-
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?('')
   end
 
 
