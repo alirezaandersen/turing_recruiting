@@ -28,18 +28,23 @@ test "login with valid information " do
   follow_redirect!
 
   assert_template 'users/show'
+  #Look for <a href="/login"></a>
+  #Make sure there are 0 on page
   assert_select "a[href=?]", login_path, count: 0
+
   assert_select "a[href=?]", logout_path
   assert_select "a[href=?]", user_path(@user)
   delete logout_path
+
   assert_not is_logged_in?
-  save_and_open_page
   assert_redirected_to root_url
+  # byebug# save_and_open_page
   follow_redirect!
 
+  # save_and_open_page
   assert_select "a[href=?]", login_path
-  assert_select "a[href=?]", logout_path, count: 1
-  assert_select "a[href=?]", user_path(@user)
+  assert_select "a[href=?]", logout_path, count: 0
+  # assert_select "a[href=?]", user_path(@user)
   end
 
   test "login with remembering" do

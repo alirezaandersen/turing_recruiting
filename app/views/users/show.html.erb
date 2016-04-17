@@ -1,7 +1,20 @@
 <div>
 <h1>Welcome <%= @user.first_name %></h1>
 
-<h3>here are the jobs you have applied to _______</h3><br>
+<h3>here are the jobs you have applied to</h3>
 
-<h3><%= link_to "Search for Jobs" %></h3>
+<div>
+  <ul>
+    <li>
+      <%= link_to "need to put a each condition here " %> <br>
+      <%= link_to "job 2 " %> <br>
+      <%= link_to "job 3 " %> <br>
+      <%= link_to "job 4 " %> <br>
+      <%= link_to "job 5 " %> <br>
+    </li>
+  </ul>
+</div>
+
+<br>
+<h4><%= link_to "Search for Jobs",jobs_path %></h4>
 </div>

@@ -1,0 +1,12 @@
+<h1><%= @job.title %></h1><br><br>
+
+<h4>Deparment:    <%= @job.department   %></h4><br>
+<h4>Title:        <%= @job.title        %></h4><br>
+<h4>Description:  <%= @job.description  %></h4><br>
+<h4>Requirements: <%= @job.requirements %></h4><br>
+<h4>Salary:      $<%= @job.salary       %></h4><br>
+
+
+<li><%= link_to "Apply",login_path %></li>
+<li><%= link_to "Log In",login_path %></li>
+<li><%= link_to "Register", new_user_path%></li>

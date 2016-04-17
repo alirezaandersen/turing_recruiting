@@ -1,0 +1,19 @@
+<h1>Create a new job</h1>
+
+<div class="row">
+<%= form_for(@job) do |f| %>
+<%= f.label :deparment, 'Department' %><br>
+<%= f.text_field :department, class: 'form-control' %><br>
+<%= f.label :title, 'Title' %><br>
+<%= f.text_field :title, class: 'form-control' %><br>
+<%= f.label :description, 'Description' %><br>
+<%= f.text_field :description, class: 'form-control' %><br>
+<%= f.label :requirements, 'Requirements' %><br>
+<%= f.text_field :requirements, class: 'form-control' %><br>
+<%= f.label :salary, 'Salary' %><br>
+<%= f.text_field :salary, class: 'form-control' %><br>
+
+<%= f.submit "Create Jobs" %>
+
+<%end%>
+</div>

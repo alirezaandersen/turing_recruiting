@@ -2,6 +2,7 @@
 
 <header class ="navbar navbar-fixed-top navbar-inverse">
   <div class="containers">
+    <%= csrf_meta_tag %>
     <%= link_to "Turing Recruiting", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav pull-right">
@@ -13,14 +14,16 @@
             </a>
             <ul class="dropdown-menu">
               <li> <%=link_to "Profile", current_user%></li>
-              <li><%= link_to "User Settings", current_user%></li>
+              <li><%= link_to "User Settings", users_path(@user)%></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log Out",logout_path, method: :delete %>
               </li>
             </ul>
         <% else %>
+        <li><%= link_to "Search Jobs",jobs_path %></li>
         <li><%= link_to "Log In",login_path %></li>
+        <li><%= link_to "Register", new_user_path%> </li>
         <%end%>
       </ul>
     </nav>

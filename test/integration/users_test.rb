@@ -2,15 +2,19 @@ require 'test_helper'
 
 class UsersTest < ActionDispatch::IntegrationTest
 
-  test "user can see login and register links from root page" do
+  def setup
+    @user = users(:ali)
+  end
 
+  test "user can see login and register links from root page" do
+    delete logout_path
     visit users_path
 
     assert users_path, current_path
-
+    # save_and_open_page
     assert page.has_link?("Turing Recruiting")
 
-    assert page.has_link?("Login")
+    assert page.has_link?("Log In")
     assert page.has_link?("Register")
 
   end
@@ -19,8 +23,8 @@ class UsersTest < ActionDispatch::IntegrationTest
 
     visit users_path
     assert users_path, current_path
-
-    click_on "Register"
+    # save_and_open_page
+    click_link "Register"
 
     assert new_user_path, current_path
 

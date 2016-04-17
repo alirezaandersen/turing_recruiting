@@ -13,7 +13,7 @@ class ActiveSupport::TestCase
   end
 
   def log_in_as(user, options= {})
-    password    = options[:password]  || 'password'
+    password    = options[:password]    || 'password'
     remember_me = options[:remember_me] || '1'
     if integration_test?
       post login_path, session: {email: user.email,
@@ -25,10 +25,12 @@ class ActiveSupport::TestCase
     end
   end
 
+  private
   #Returns true inside an itegration test
   def integration_test?
     defined?(post_via_redirect)
   end
+
 end
 
 class ActionDispatch::IntegrationTest

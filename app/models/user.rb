@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :applications
+  has_many :jobs, :through => :applications
+
   attr_accessor :remember_token
+
   has_secure_password
   before_validation :downcase_email
 
