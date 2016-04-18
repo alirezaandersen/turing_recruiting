@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
                          uniqueness: true
   validates :user_name,    presence: true,
                          uniqueness: true
-  validates :password,     presence: true
+  validates :password,     presence: true, :on => :create
 
   # before_create :create_password_digest
   def User.digest(string)
@@ -21,10 +21,6 @@ class User < ActiveRecord::Base
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-
-  # def create_password_digest
-  #   self.password_digest = User.digest()
-  # end
 
   #returns a random token
   def User.new_token

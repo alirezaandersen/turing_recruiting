@@ -5,13 +5,13 @@
 
 <div>
   <ul>
-    <li>
-      <%= link_to "need to put a each condition here " %> <br>
-      <%= link_to "job 2 " %> <br>
-      <%= link_to "job 3 " %> <br>
-      <%= link_to "job 4 " %> <br>
-      <%= link_to "job 5 " %> <br>
-    </li>
+
+      <% @all_user_jobs.each do |job| %> <br>
+        <li>
+        <%= link_to job.title,job_path(job) %> <br>
+        </li>
+      <%end%>
+
   </ul>
 </div>
 

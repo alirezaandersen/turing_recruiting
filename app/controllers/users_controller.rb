@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  # layout "application"
+
+  # before_action :is_admin?
 
   def index
     @users = User.all
@@ -11,25 +12,28 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @all_user_jobs = User.find(current_user).jobs
   end
 
   def create
     @user = User.new(user_params)
-    # byebug
     if @user.save
       login @user
       flash.now[:save] = "You have Successfully Register"
-      render :show
+      redirect_to user_path(@user)
     else
       flash.now[:error] = "Missing Data"
       render :new
     end
   end
-  def edit
 
-  end 
+  def edit
+    @user = current_user
+  end
+
   def update
-    if @user.update_attributes(user_params)
+    @user = current_user
+    if @user.update_attributes!(application_params)
       flash[:success] = "Profile updated"
       redirect_to @user
     else
@@ -47,6 +51,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :user_name, :password)
+  end
+
+  def application_params
+    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :address, :current_job, :previous_job)
   end
 
 end

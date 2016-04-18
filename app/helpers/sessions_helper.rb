@@ -28,6 +28,15 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def is_admin?
+    #byebug
+      current_user && current_user.admin?
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
+
   def forget(user)
     user.forget
     cookies.delete(:user_id)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417035515) do
+ActiveRecord::Schema.define(version: 20160417211227) do
 
   create_table "applications", force: :cascade do |t|
     t.integer  "job_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160417035515) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "remember_digest"
+    t.boolean  "admin"
   end
 
 end
