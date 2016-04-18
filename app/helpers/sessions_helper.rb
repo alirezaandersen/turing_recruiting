@@ -34,8 +34,8 @@ module SessionsHelper
 
   def admin_user
     if is_admin?
-    redirect_to(root_url) #if current_user.admin?
-  end
+    redirect_to(root_url)
+    end
   end
 
   def correct_user

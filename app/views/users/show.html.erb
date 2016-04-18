@@ -1,8 +1,13 @@
 <div>
 <h1>Welcome <%= @user.first_name %></h1>
 
-<h3>here are the jobs you have applied to</h3>
-
+  <div>
+  <%if @all_user_jobs.count >= 1 %>
+  <h3><%= "Here are the jobs you have applied to"%></h3>
+  <%else%>
+<h3><%= "You still have not applied for your dream job" %></h3>
+  <%end%>
+</div>
 <div>
   <ul>
 
