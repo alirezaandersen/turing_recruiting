@@ -29,12 +29,18 @@ module SessionsHelper
   end
 
   def is_admin?
-    #byebug
       current_user && current_user.admin?
   end
 
   def admin_user
-    redirect_to(root_url) unless current_user.admin?
+    if is_admin?
+    redirect_to(root_url) #if current_user.admin?
+  end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 
   def forget(user)
