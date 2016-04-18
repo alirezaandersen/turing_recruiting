@@ -1,0 +1,25 @@
+<div>
+<h1>Welcome <%= @user.first_name %></h1>
+
+  <div>
+  <%if @all_user_jobs.count >= 1 %>
+  <h3><%= "Here are the jobs you have applied to"%></h3>
+  <%else%>
+<h3><%= "You still have not applied for your dream job" %></h3>
+  <%end%>
+</div>
+<div>
+  <ul>
+
+      <% @all_user_jobs.each do |job| %> <br>
+        <li>
+        <%= link_to job.title,job_path(job) %> <br>
+        </li>
+      <%end%>
+
+  </ul>
+</div>
+
+<br>
+<h4><%= link_to "Search for Jobs",jobs_path %></h4>
+</div>

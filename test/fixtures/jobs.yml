@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  department: Business Intelligence
+  title: Spy
+  description: Hacker
+  requirements: Luck
+  salary: 80999
+
+two:
+  department: I.T
+  title: Programmer
+  description: Fullstack development
+  requirements: Able to work long hours
+  salary: 85001

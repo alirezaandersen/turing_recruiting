@@ -1,0 +1,11 @@
+<h1>Find Your Dream Job</h1>
+
+<div>
+
+    <ul>
+      <% @jobs.each do |search| %>
+      <%=link_to search.description,job_path(search) %><br>
+      <%end%>
+    </ul>
+
+</div>
