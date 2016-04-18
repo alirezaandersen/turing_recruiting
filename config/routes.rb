@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:index, :show, :new, :create, :update]
   get    '/jobs/:id/apply' => 'jobs#apply'
-  get    '/jobs/admin'     => 'jobs#admin'
-  get    '/users/admin'    => 'users#admin'
+  get    '/admin/jobs'     => 'admin#jobs'
+  get    '/admin/users'    => 'admin#users'
   get    '/admin/'         => 'admin#index'
 end

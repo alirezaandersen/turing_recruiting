@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-
+before_action :admin_user, only: [:new, :create]
   def index
     @jobs = Job.all
   end
@@ -33,6 +33,11 @@ class JobsController < ApplicationController
       flash[:error] = "Missing Data"
       render :new
     end
+  end
+
+  def correct_user
+      @job = current_user.jobs.find_by(id: params[:id])
+      redirect_to root_url if @job.nil?
   end
 
   private

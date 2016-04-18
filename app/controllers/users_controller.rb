@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  # before_action :is_admin?
-
   def index
     @users = User.all
   end
@@ -13,7 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @all_user_jobs = User.find(current_user).jobs
-    
+
   end
 
   def create

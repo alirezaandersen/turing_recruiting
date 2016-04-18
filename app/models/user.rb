@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   end
 
   def forget
-      update_attribute(:remember_digest, nil)
+    update_attribute(:remember_digest, nil)
   end
 
   def authenticated?(remember_token)
@@ -47,14 +47,5 @@ class User < ActiveRecord::Base
   def downcase_email
     self.email = self.email.downcase if self.email.present?
   end
-
-
-# http://stackoverflow.com/questions/24641143/rails-conditional-validation-in-model
-  # def application_validation
-  #   validates :phone_number, presence: true
-  #   validates :address,      presence: true
-  #   validates :current_job,  presence: true
-  #   validates :previous_job, presence: true
-  # end
 
 end

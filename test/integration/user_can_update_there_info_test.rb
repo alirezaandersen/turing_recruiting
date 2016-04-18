@@ -3,7 +3,7 @@
 # class UsersLoginTest < ActionDispatch::IntegrationTest
 #
 #
-#   test "registered user can update there profile" do
+#   test "registered user can update their profile" do
 #
 #     visit edit_users_path(@user)
 #
