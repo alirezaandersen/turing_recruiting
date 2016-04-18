@@ -11,9 +11,7 @@ class UsersTest < ActionDispatch::IntegrationTest
     visit users_path
 
     assert users_path, current_path
-    # save_and_open_page
-    assert page.has_link?("Turing Recruiting")
-
+    assert page.has_content?("Turing Recruting")
     assert page.has_link?("Log In")
     assert page.has_link?("Register")
 

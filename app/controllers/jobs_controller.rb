@@ -9,15 +9,21 @@ before_action :admin_user, only: [:new, :create]
   end
 
   def apply
+    if current_user.nil?
+    redirect_to login_path
+    else
     job_id = params[:id]
+    # byebug
     user_id = current_user.id
     application = Job.find(job_id).applications.create(job_id: job_id,user_id: user_id)
     if application.save
       flash[:success] = "You Have Successfully Applied"
       redirect_to user_path(current_user)
     else
-      flash.now[:error] = "You Failed at applying! You'll Never get hired!"
+      flash[:error] = "You Failed at applying! You'll Never get hired!"
+      redirect_to login_path
     end
+  end
   end
 
   def new
