@@ -3,9 +3,6 @@ module SessionsHelper
 
   def login(user)
     session[:user_id] = user.id
-    # if user = is_admin?
-    #   redirect_to admin_path
-    # end
   end
 
   def remember(user)
@@ -39,6 +36,10 @@ module SessionsHelper
     if current_user && !current_user.admin?
     render file: "/public/404"
     end
+  end
+
+  def logged_in_user
+    render file: "/public/404" unless login?
   end
 
   def correct_user

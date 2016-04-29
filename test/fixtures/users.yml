@@ -6,11 +6,22 @@ ali:
   address: Denver
   email: example@yahoo.com
   phone_number: "555-555-5555"
-  user_name: AliExample
-  password_digest: <%=  User.digest('password') %> 
+  password_digest: <%=  User.digest('password') %>
   current_job: Programmer
   previous_job: Event Guru
 
+
+
+nate:
+    first_name: Nate Example
+    last_name: Nate Example
+    address: Denver
+    email: example@yahoo.com
+    phone_number: "555-555-5555"
+    password_digest: <%=  User.digest('password') %>
+    current_job: Programmer
+    previous_job: Event Guru
+    admin: true
 # two:
 #   first_name: MyString
 #   last_name: MyString

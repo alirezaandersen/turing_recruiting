@@ -29,7 +29,6 @@ class UsersTest < ActionDispatch::IntegrationTest
     fill_in "First Name", with: "Ali"
     fill_in "Last Name", with: "Andersen"
     fill_in "Email", with: "alibon714@yahoo.com"
-    fill_in "Username", with: "Alireza"
     fill_in "Password", with: "password"
 
     click_button "Register"
@@ -45,7 +44,6 @@ class UsersTest < ActionDispatch::IntegrationTest
     fill_in "First Name", with: "Ali"
     fill_in "Last Name", with: "Andersen"
     fill_in "Email", with: "alibon714@yahoo.com"
-    fill_in "Username", with: "Alireza"
     fill_in "Password", with: "password"
 
     click_button "Register"

@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-before_action :admin_user, only: [:new, :create]
+  before_action :admin_user, only: [:new, :create]
   def index
     @jobs = Job.all
   end
@@ -10,20 +10,18 @@ before_action :admin_user, only: [:new, :create]
 
   def apply
     if current_user.nil?
-    redirect_to login_path
-    else
-    job_id = params[:id]
-    # byebug
-    user_id = current_user.id
-    application = Job.find(job_id).applications.create(job_id: job_id,user_id: user_id)
-    if application.save
-      flash[:success] = "You Have Successfully Applied"
-      redirect_to user_path(current_user)
-    else
-      flash[:error] = "You Failed at applying! You'll Never get hired!"
       redirect_to login_path
+    else
+      job = Job.find(params[:id])
+      application = job.applications.create(user_id: current_user.id)
+      if application.save
+        flash[:success] = "You Have Successfully Applied"
+        redirect_to user_path(current_user)
+      else
+        flash[:error] = "You Have Already Applied For This Job."
+        redirect_to jobs_path(job)
+      end
     end
-  end
   end
 
   def new
@@ -41,15 +39,14 @@ before_action :admin_user, only: [:new, :create]
     end
   end
 
-  def correct_user
-      @job = current_user.jobs.find_by(id: params[:id])
-      redirect_to root_url if @job.nil?
-  end
-
   private
+
+  def correct_user
+    @job = current_user.jobs.find_by(id: params[:id])
+    redirect_to root_url if @job.nil?
+  end
 
   def job_params
     params.require(:job).permit(:department, :title, :description, :requirements,:salary)
   end
-
 end

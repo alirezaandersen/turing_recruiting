@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :jobs, only: [:index, :show, :new, :create, :update]
+  resources :jobs, only: [:index, :show, :new, :create]
   get    '/jobs/:id/apply' => 'jobs#apply'
   get    '/admin/jobs'     => 'admin#jobs'
   get    '/admin/users'    => 'admin#users'

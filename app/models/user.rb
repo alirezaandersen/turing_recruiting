@@ -11,14 +11,12 @@ class User < ActiveRecord::Base
   validates :last_name,    presence: true
   validates :email,        presence: true,
                          uniqueness: true
-  validates :user_name,    presence: true,
-                         uniqueness: true
   validates :password,     presence: true, :on => :create
 
   # before_create :create_password_digest
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
+    BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
