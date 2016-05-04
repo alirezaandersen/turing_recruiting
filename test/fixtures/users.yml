@@ -16,7 +16,7 @@ nate:
     first_name: Nate Example
     last_name: Nate Example
     address: Denver
-    email: example@yahoo.com
+    email: example1234@yahoo.com
     phone_number: "555-555-5555"
     password_digest: <%=  User.digest('password') %>
     current_job: Programmer

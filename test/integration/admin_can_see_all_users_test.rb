@@ -7,27 +7,24 @@ require 'test_helper'
 
       visit login_path
 
-      fill_in "Email" with: users(:nate).email
-      fill_in "Email" with: users(:nate).password
+      fill_in "Email", with: users(:nate).email
+      fill_in "Password", with: users(:nate).password
+      # save_and_open_page
+      click_link "Log In"
 
-      click_button "Log In"
-
-      assert user_path(user(:nate).id)
+      assert user_path(users(:nate).id)
 
 
-      visit '/admin/users' admin_users_path
+      visit admin_users_path
 
       assert admin_users_path, current_path
 
       users.each do |user|
-      assert page.has_content?(user.first_name)  
+      assert page.has_content?(user.first_name)
       end
 
       assert page.has_content?("Spooky")
       assert page.has_content?("Amy")
-
-
-
     end
 
 

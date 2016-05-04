@@ -1,4 +1,13 @@
-<%= image_tag("404.jpg") %>
+<!-- <%#= image_tag("404.jpg") %> -->
+
+<h1>See All Users</h1>
+
 <div>
-  
+<ul>
+  <% @users.each do |user| %>
+  <li>
+  <%= user.first_name %> <%= user.last_name %>
+  </li>
+  <% end %>
+</ul>
 </div>

@@ -17,7 +17,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     fill_in "Password", with: "password"
 
     click_button "Register"
-    save_and_open_page
+    # save_and_open_page
     assert page.has_content?("Welcome Ali")
 
     visit edit_user_path(@user)
