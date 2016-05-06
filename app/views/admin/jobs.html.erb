@@ -2,6 +2,12 @@
 
 <h1>See all jobs </h1>
 
+<ul>
+  <% @jobs.each do |search| %>
+  <%=link_to search.description,job_path(search) %><br>
+  <%end%>
+</ul>
+
 
 <h1>open jobs</h1>
 
