@@ -3,6 +3,7 @@ class AdminController < ApplicationController
   end
 
   def jobs
+    #adding user functionality will allow for jobs to be searched by admin
   end
 
   def users
